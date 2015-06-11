@@ -1,4 +1,4 @@
-case class LatLng(lat: BigDecimal, lng: BigDecimal)
+package main
 
 class Polyline {
 
