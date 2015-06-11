@@ -38,7 +38,7 @@ class Polyline {
   }
 
   def decode(polyline: String): List[LatLng] = {
-    decodeDifferences(polyline, Nil).reverse.foldLeft[List[LatLng]](Nil)({(acc, diff) =>
+    decodeDifferences(polyline, Nil).foldRight[List[LatLng]](Nil)({(diff, acc) =>
       acc match {
         case Nil => List(LatLng(diff._1, diff._2))
         case coordinates => LatLng(coordinates.head.lat + diff._1, coordinates.head.lng + diff._2)::coordinates
