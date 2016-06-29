@@ -1,17 +1,21 @@
 package main
 
+import scala.math.BigDecimal.RoundingMode
+
 class Polyline {
 
   def encode(coordinates: List[LatLng]): String = {
     coordinates.foldLeft[List[(BigDecimal,BigDecimal)]](Nil)({(acc, coordinate) =>
+      val lat = coordinate.lat.setScale(5, RoundingMode.HALF_EVEN)
+      val lng = coordinate.lng.setScale(5, RoundingMode.HALF_EVEN)
       acc match {
-        case Nil => List((coordinate.lat, coordinate.lng))
+        case Nil => List((lat, lng))
         case differences =>
           val currentPos = differences.reduceLeft((pos, diff) => (pos._1 + diff._1, pos._2 + diff._2))
-          (coordinate.lat - currentPos._1, coordinate.lng - currentPos._2)::differences
+          (lat - currentPos._1, lng - currentPos._2)::differences
       }
     }).reverse.map{ case (latDiff, lngDiff) =>
-      encodeDifference(latDiff) + encodeDifference(lngDiff)
+        encodeDifference(latDiff) + encodeDifference(lngDiff)
     }.mkString
   }
 
@@ -70,5 +74,5 @@ class Polyline {
       (endResult, polyline.drop(1))
     }
   }
-
 }
+
