@@ -7,6 +7,6 @@ A Scala Polyline Encoder and Decoder
 ###Installation
 Polyline-scala is currently built for Scala 2.11. To use it in an sbt project, add the following to your project file:
 
-    libraryDependencies += "com.github.trifectalabs" %% "polyline-scala" % "1.0.1"
+    libraryDependencies += "com.github.trifectalabs" %% "polyline-scala" % "1.1.0"
 
 Google Documentation on polyline encoding can be found here: https://developers.google.com/maps/documentation/utilities/polylinealgorithm

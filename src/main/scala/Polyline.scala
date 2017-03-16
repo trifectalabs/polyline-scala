@@ -2,7 +2,7 @@ package com.trifectalabs.polyline
 
 import scala.math.BigDecimal.RoundingMode
 
-class Polyline {
+object Polyline {
 
   def encode(coordinates: List[LatLng]): String = {
     coordinates.foldLeft[List[(BigDecimal,BigDecimal)]](Nil)({(acc, coordinate) =>
