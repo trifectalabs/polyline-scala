@@ -1,4 +1,4 @@
-package main
+package com.trifectalabs.polyline
 
 import scala.math.BigDecimal.RoundingMode
 
