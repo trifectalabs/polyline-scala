@@ -1,6 +1,6 @@
 package com.trifectalabs.polyline
 
 case class LatLng(
-  lat: BigDecimal,
-  lng: BigDecimal
+  lat: Double,
+  lng: Double
 )
