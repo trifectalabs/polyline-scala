@@ -6,7 +6,7 @@ organization := "com.github.trifectalabs"
 
 scalaVersion := "2.11.6"
 
-libraryDependencies += "org.scalatest" % "scalatest_2.11" % "2.2.4" % "test"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.10" % "test"
 
 publishMavenStyle := true
 
@@ -14,12 +14,14 @@ publishArtifact in Test := false
 
 pomIncludeRepository := { _ => false }
 
+crossScalaVersions := List("2.11.6", "2.12.15", "2.13.7")
+
 publishTo := {
   val nexus = "https://oss.sonatype.org/"
   if (isSnapshot.value)
     Some("snapshots" at nexus + "content/repositories/snapshots")
   else
-    Some("releases"  at nexus + "service/local/staging/deploy/maven2")
+    Some("releases" at nexus + "service/local/staging/deploy/maven2")
 }
 
 pomExtra :=
